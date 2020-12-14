@@ -39,7 +39,7 @@ const useStyles = makeStyles((theme) => ({
 function App() {
   const styles= useStyles();
   const [data, setData]= useState([]);
-  const [wilder, setwilder]= useState(1);
+  //const [wilder, setwilder]= useState(1);
   const [modalInsertar, setModalInsertar]= useState(false);
   const [modalEditar, setModalEditar]= useState(false);
   const [modalEliminar, setModalEliminar]= useState(false);
@@ -64,9 +64,10 @@ function App() {
     .then(response=>{
       
      setData(response.data);
-     console.log("estamos en piticioGet",data);
-     setwilder(wilder+1);
-     console.log("wilder get",wilder);
+     //console.log("estamos en response piticioGet",response);
+     //console.log("estamos en data piticioGet",response.data);
+     //setwilder(wilder+1);
+     //console.log("wilder get",wilder);
     }).catch(error=>{
       console.log(error);
     })
@@ -77,13 +78,13 @@ function App() {
     await axios.post(baseUrl, artistaSeleccionado)
     .then(response=>{
       //peticionGet();
-      console.log(artistaSeleccionado);
-      console.log("antes de concatenar",response.data);
-      console.log("y el datar",data);
+      //console.log("en post artistaseleccionado" , artistaSeleccionado);
+      //console.log("estamos en el post, el response",response);
+      //console.log("y el data queda asi en el post",response.data);
       //debugger
       setData(data.concat(response.data));
-      setwilder(wilder+1);
-      console.log("wilder post",wilder);
+      //setwilder(wilder+1);
+      //console.log("wilder post",wilder);
       //console.log("despues de concatenar",data);
       
       abrirCerrarModalInsertar();
@@ -94,7 +95,9 @@ function App() {
     
   }
 
-  const peticionPut=async()=>{
+  const peticionPut = async () => {
+    
+
     await axios.put(baseUrl+"/"+artistaSeleccionado.id, artistaSeleccionado)
     .then(response=>{
       var dataNueva= data;
@@ -144,8 +147,9 @@ function App() {
   }
 
   useEffect(()=>{
-    console.log("algo ha pasado oe");
     peticionGet();
+    console.log("algo ha pasado oe");
+    
     
   }, [])
 
