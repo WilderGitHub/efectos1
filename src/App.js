@@ -13,7 +13,8 @@ const columns= [
   { title: 'Género(s)', field: 'genero' },
   { title: 'Ventas Estimadas (millones)', field: 'ventas', type: 'numeric'}
 ];
-const baseUrl="http://localhost:3001/artistas";
+//aqui apunta a mi compu. Si estas en red, tendria que ser localhost
+const baseUrl="http://172.29.22.21:3001/artistas";
 
 
 const useStyles = makeStyles((theme) => ({
